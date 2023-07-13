@@ -1,4 +1,5 @@
 import "./index.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
