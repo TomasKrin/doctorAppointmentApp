@@ -18,7 +18,7 @@ app.use(express.json());
 
 app.post("/appointments/new", async (req, res) => {
   try {
-    if (req.body.name && req.body.last_name && req.body.date && req.body.time) {
+    if (req.body.name && req.body.last_name && req.body.date && req.body.start && req.body.end) {
       const con = await client.connect();
 
       const registerDate = new Date(req.body.date);
@@ -28,8 +28,7 @@ app.post("/appointments/new", async (req, res) => {
         .db("DoctorAppointmentApp")
         .collection("appointments")
         .find({
-          name: req.body.name,
-          last_name: req.body.last_name,
+          person: `${req.body.name} ${req.body.last_name}`,
         })
         .toArray();
 
@@ -50,19 +49,23 @@ app.post("/appointments/new", async (req, res) => {
             .collection("appointments")
             .findOne({
               date: req.body.date,
-              time: req.body.time,
+              start: req.body.start,
+              end: req.body.end,
             });
 
           if (appointmentExists) {
             await con.close();
             res.status(409).send("Appointment this time already exists, select other time");
           } else {
-            const data = await con.db("DoctorAppointmentApp").collection("appointments").insertOne({
-              name: req.body.name,
-              last_name: req.body.last_name,
-              date: req.body.date,
-              time: req.body.time,
-            });
+            const data = await con
+              .db("DoctorAppointmentApp")
+              .collection("appointments")
+              .insertOne({
+                person: `${req.body.name} ${req.body.last_name}`,
+                date: req.body.date,
+                start: req.body.start,
+                end: req.body.end,
+              });
             await con.close();
             res.send(data);
           }
