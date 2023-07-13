@@ -4,6 +4,7 @@ import { Form, Formik } from "formik";
 
 import FormikInput from "../../components/Formik/FormikInput.jsx";
 import { HOME_PATH } from "../../routes/consts";
+import { addHoursToTimeString } from "../../utils/dateAndTimeString.js";
 import { required } from "../../consts/validations";
 import styled from "styled-components";
 import { useCreateAppointment } from "../../hooks/appointments";
@@ -28,7 +29,15 @@ const Register = () => {
   const { mutateAsync: addNewAppointment } = useCreateAppointment();
 
   const handleSubmit = (values) => {
-    addNewAppointment(values)
+    console.log(values);
+    const { time, ...rest } = values;
+    const updatedValues = {
+      ...rest,
+      start: time,
+      end: addHoursToTimeString(values.time, 1),
+    };
+    console.log(updatedValues);
+    addNewAppointment(updatedValues)
       .then(() => {
         setTimeout(() => {
           navigate(HOME_PATH);
