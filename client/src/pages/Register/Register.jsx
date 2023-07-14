@@ -68,6 +68,9 @@ const Register = () => {
       .catch((response) => {
         toast.error(response.response.data);
         console.error(response.response.data);
+        setTimeout(() => {
+          location.reload();
+        }, 2000);
       });
   };
 
