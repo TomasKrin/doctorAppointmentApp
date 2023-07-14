@@ -10,8 +10,15 @@ import Typography from "@mui/material/Typography";
 import { addHoursToTimeString } from "../../utils/dateAndTimeString";
 import moment from "moment";
 import { required } from "../../consts/validations";
+import { toast } from "react-hot-toast";
 import { useCreateAppointment } from "../../hooks/appointments";
 import { useNavigate } from "react-router-dom";
+
+const isWeekend = (date) => {
+  const day = date.day();
+
+  return day === 0 || day === 6;
+};
 
 const initialValues = {
   name: "",
@@ -53,18 +60,15 @@ const Register = () => {
 
     addNewAppointment(updatedValues)
       .then(() => {
+        toast.success("Your Appointment Registered Successfully");
         setTimeout(() => {
           navigate(HOME_PATH);
         }, 500);
       })
       .catch((response) => {
+        toast.error(response.response.data);
         console.error(response.response.data);
       });
-  };
-
-  const renderHour = (hour) => {
-    const formattedHour = hour.toString().padStart(2, "0") + ":00";
-    return <span>{formattedHour}</span>;
   };
 
   return (
@@ -134,8 +138,8 @@ const Register = () => {
                   fullWidth
                   required
                   disablePast
-                  renderOption={renderHour}
                   sx={{ mb: 2, flex: 1 }}
+                  shouldDisableDate={isWeekend}
                   onChange={(value) => handleDateChange(new Date(value), setFieldValue)}
                   slotProps={{
                     textField: {
@@ -151,15 +155,13 @@ const Register = () => {
                 <Field
                   component={TimePicker}
                   name="time"
-                  label="Time"
+                  label="Select an Appointment Time"
                   format="HH:00"
                   required
-                  formatDensity="spacious"
                   minutesStep={60}
                   views={["hours"]}
                   ampm={false}
                   sx={{ mb: 2, flex: 1 }}
-                  disableIgnoringDatePartForTimeValidation={true}
                   minTime={moment().set({ hour: 7, minute: 0 })}
                   maxTime={moment().set({ hour: 17, minute: 0 })}
                   skipDisabled
