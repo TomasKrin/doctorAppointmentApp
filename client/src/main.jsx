@@ -7,6 +7,7 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 
@@ -15,6 +16,18 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <App />
+        <Toaster
+          position="bottom-center"
+          toastOptions={{
+            duration: 2000,
+            style: {
+              borderRadius: "8px",
+              background: "#333",
+              color: "#fff",
+              fontSize: "0.8em",
+            },
+          }}
+        />
       </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
