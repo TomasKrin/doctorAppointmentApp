@@ -72,10 +72,10 @@ app.post("/appointments/new", async (req, res) => {
         }
       }
     } else {
-      res.status(400).send("Bad Request");
+      res.status(400).send("Invalid information or something is missing");
     }
   } catch (error) {
-    res.status(500).send({ error });
+    res.status(500).send("Server Error");
   }
 });
 
