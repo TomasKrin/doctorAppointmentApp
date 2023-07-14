@@ -21,8 +21,8 @@ app.post("/appointments/new", async (req, res) => {
     if (req.body.name && req.body.last_name && req.body.date && req.body.start && req.body.end) {
       const con = await client.connect();
 
-      const registerDate = new Date(req.body.date);
-      const week = moment(registerDate).format("W");
+      const newRegisterDate = new Date(req.body.date);
+      const week = moment(newRegisterDate).format("W");
 
       const checkUser = await con
         .db("DoctorAppointmentApp")
