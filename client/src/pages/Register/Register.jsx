@@ -1,38 +1,16 @@
-import * as Yup from "yup";
-
 import { Box, Button, Paper } from "@mui/material";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import { Field, Form, Formik } from "formik";
+import { initialValues, isWeekend, validationSchema } from "./consts";
 
 import { HOME_PATH } from "../../routes/consts";
 import { TextField } from "formik-mui";
 import Typography from "@mui/material/Typography";
 import { addHoursToTimeString } from "../../utils/dateAndTimeString";
 import moment from "moment";
-import { required } from "../../consts/validations";
 import { toast } from "react-hot-toast";
 import { useCreateAppointment } from "../../hooks/appointments";
 import { useNavigate } from "react-router-dom";
-
-const isWeekend = (date) => {
-  const day = date.day();
-
-  return day === 0 || day === 6;
-};
-
-const initialValues = {
-  name: "",
-  last_name: "",
-  date: "",
-  time: "",
-};
-
-const validationSchema = Yup.object().shape({
-  name: Yup.string().required(required),
-  last_name: Yup.string().required(required),
-  date: Yup.string().required(required),
-  time: Yup.string().required(required),
-});
 
 const Register = () => {
   const navigate = useNavigate();
@@ -43,20 +21,16 @@ const Register = () => {
     setFieldValue("date", value.toLocaleDateString("lt"));
   };
   const handleTimeChange = (value, setFieldValue) => {
-    console.log;
     setFieldValue("time", moment(value).format("HH:mm"));
   };
 
   const handleSubmit = (values) => {
-    console.log(values);
-
     const { time, ...rest } = values;
     const updatedValues = {
       ...rest,
       start: time,
       end: addHoursToTimeString(time, 1),
     };
-    console.log(updatedValues);
 
     addNewAppointment(updatedValues)
       .then(() => {
@@ -195,6 +169,15 @@ const Register = () => {
                 fullWidth
               >
                 Register
+              </Button>
+              <Button
+                variant="text"
+                sx={{ mb: 2 }}
+                required
+                fullWidth
+                onClick={() => navigate(HOME_PATH)}
+              >
+                Home Page
               </Button>
             </Form>
           )}
