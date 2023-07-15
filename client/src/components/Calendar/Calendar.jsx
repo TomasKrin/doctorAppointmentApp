@@ -37,6 +37,11 @@ const Calendar = () => {
         locale="lt-global"
         initialView="dayGridMonth"
         plugins={[dayGridPlugin, timeGridPlugin]}
+        eventTimeFormat={{
+          hour: "numeric",
+          minute: "2-digit",
+          meridiem: false,
+        }}
         slotLabelFormat={{
           hour: "2-digit",
           minute: "2-digit",
