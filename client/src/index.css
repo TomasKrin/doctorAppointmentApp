@@ -1,7 +1,7 @@
 @import "normalize.css/normalize.css";
 @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,300;1,700&display=swap");
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
 
@@ -16,4 +16,41 @@ p {
 ul.css-1916zh5-MuiList-root-MuiMultiSectionDigitalClockSection-root {
   display: flex;
   flex-direction: column;
+}
+
+:root .fc .fc-button-primary {
+  background-color: #1976d2;
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+:root .fc .fc-button-primary::first-letter {
+  text-transform: capitalize;
+}
+:root .fc .fc-button-primary :disabled {
+  background-color: #1976d2;
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+:root .fc .fc-button-primary:not(:disabled).fc-button-active,
+.fc .fc-button-primary:not(:disabled):active {
+  background-color: #115293;
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+:root .fc-toolbar-title {
+  text-transform: capitalize;
+  font-size: 1.5rem;
 }
