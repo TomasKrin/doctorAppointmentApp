@@ -1,5 +1,6 @@
 import * as Yup from "yup";
 
+import moment from "moment";
 import { required } from "../../consts/validations";
 
 export const isWeekend = (date) => {
@@ -21,3 +22,11 @@ export const validationSchema = Yup.object().shape({
   date: Yup.string().required(required),
   time: Yup.string().required(required),
 });
+
+export const handleDateChange = (value, setFieldValue) => {
+  setFieldValue("date", value.toLocaleDateString("lt"));
+};
+
+export const handleTimeChange = (value, setFieldValue) => {
+  setFieldValue("time", moment(value).format("HH:mm"));
+};

@@ -1,7 +1,13 @@
 import { Box, Button, Paper } from "@mui/material";
 import { DatePicker, TimePicker } from "@mui/x-date-pickers";
 import { Field, Form, Formik } from "formik";
-import { initialValues, isWeekend, validationSchema } from "./consts";
+import {
+  handleDateChange,
+  handleTimeChange,
+  initialValues,
+  isWeekend,
+  validationSchema,
+} from "./consts";
 
 import { HOME_PATH } from "../../routes/consts";
 import { TextField } from "formik-mui";
@@ -16,13 +22,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const { mutateAsync: addNewAppointment } = useCreateAppointment();
-
-  const handleDateChange = (value, setFieldValue) => {
-    setFieldValue("date", value.toLocaleDateString("lt"));
-  };
-  const handleTimeChange = (value, setFieldValue) => {
-    setFieldValue("time", moment(value).format("HH:mm"));
-  };
 
   const handleSubmit = (values) => {
     const { time, ...rest } = values;
@@ -43,7 +42,7 @@ const Register = () => {
         toast.error(response.response.data);
         console.error(response.response.data);
         setTimeout(() => {
-          location.reload();
+          navigate(HOME_PATH);
         }, 2000);
       });
   };
