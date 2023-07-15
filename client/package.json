@@ -1,16 +1,16 @@
 {
   "name": "doctorappointmentapp",
-  "homepage": "https:///TomasKrin/github.io/doctorAppointmentApp",
+  "homepage": "https://TomasKrin.github.io/doctorAppointmentApp/",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build -b master"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
