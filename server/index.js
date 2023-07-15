@@ -20,15 +20,18 @@ app.post("/appointments/new", async (req, res) => {
   try {
     if (req.body.name && req.body.last_name && req.body.date && req.body.start && req.body.end) {
       const con = await client.connect();
+      const capitalizeFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
 
       const newRegisterDate = new Date(req.body.date);
       const week = moment(newRegisterDate).format("W");
+      const firstName = capitalizeFirstLetter(req.body.name);
+      const lastName = capitalizeFirstLetter(req.body.last_name);
 
       const checkUser = await con
         .db("DoctorAppointmentApp")
         .collection("appointments")
         .find({
-          person: `${req.body.name} ${req.body.last_name}`,
+          person: `${firstName} ${lastName}`,
         })
         .toArray();
 
@@ -61,7 +64,7 @@ app.post("/appointments/new", async (req, res) => {
               .db("DoctorAppointmentApp")
               .collection("appointments")
               .insertOne({
-                person: `${req.body.name} ${req.body.last_name}`,
+                person: `${firstName} ${lastName}`,
                 date: req.body.date,
                 start: req.body.start,
                 end: req.body.end,
@@ -75,7 +78,7 @@ app.post("/appointments/new", async (req, res) => {
       res.status(400).send("Invalid information or something is missing");
     }
   } catch (error) {
-    res.status(500).send("Server Error");
+    res.status(500).send({ error });
   }
 });
 
