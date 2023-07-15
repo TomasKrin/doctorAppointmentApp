@@ -23,7 +23,7 @@ const Calendar = () => {
   });
 
   return (
-    <Paper elevation={24} style={{ width: "70vw", margin: "50px auto", padding: "20px" }}>
+    <Paper elevation={24} style={{ width: "70vw", margin: "35px auto", padding: "20px" }}>
       <FullCalendar
         locales={allLocales}
         height={612}

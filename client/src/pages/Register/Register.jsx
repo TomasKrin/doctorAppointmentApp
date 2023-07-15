@@ -61,7 +61,7 @@ const Register = () => {
           m: "150px auto",
         }}
       >
-        <Typography variant="h6" textAlign="center" mb={2}>
+        <Typography variant="h6" textAlign="center" mb={2} sx={{ fontStyle: "italic" }}>
           Register
         </Typography>
 
