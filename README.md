@@ -82,7 +82,7 @@ in a scheduler-type calendar.
 
   Set up the ".env" file to match the ".env.example" file, but with your own information filled in.
 
-    Link to the MongoDB URI guide: <a href="https://www.mongodb.com/docs/manual/reference/connection-string/">MONGO DB URI guide</a> 
+    Link to the MongoDB URI guide: https://www.mongodb.com/docs/manual/reference/connection-string/
     
   Use the command "yarn dev" in both terminal tabs to run the project on your computer.
 
