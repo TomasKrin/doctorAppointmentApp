@@ -47,15 +47,16 @@ in a scheduler-type calendar.
 
   Next, you need to clone this project to your computer:
   
-    1. Click this button: 
+  Click this button: 
     <img width="74" alt="Screenshot_18" src="https://github.com/TomasKrin/doctorAppointmentApp/assets/113928717/41802a87-b013-49b8-9217-be2710c43788">
-    2. Copy this URL: 
+  Copy this URL: 
     <img width="295" alt="Screenshot_19" src="https://github.com/TomasKrin/doctorAppointmentApp/assets/113928717/bc809495-0f87-4323-878c-b972434a1149">
-    3. Open your terminal (e.g., Git Bash).
-    4. Navigate to the directory, where you want to clone the project.
-    5. Type "git clone" followed by the URL you copied.
-    6. Hit Enter to clone the project.
-    7. Open the project folder with your code editor (e.g., VSCode).
+    
+    1. Open your terminal (e.g., Git Bash).
+    2. Navigate to the directory, where you want to clone the project.
+    3. Type "git clone" followed by the URL you copied.
+    4. Hit Enter to clone the project.
+    5. Open the project folder with your code editor (e.g., VSCode).
     
   After cloning, use the integrated terminal in VSCode:
 
