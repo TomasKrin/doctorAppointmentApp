@@ -82,7 +82,7 @@ in a scheduler-type calendar.
 
 
 
-  Set up the ".env" file to match the ".env.example" file, but with your own information filled in.
+  Set up the ".env" file inside "server" folder, to match the ".env.example" file, but with your own information filled in.
   
   Link to the MongoDB URI guide: https://www.mongodb.com/docs/manual/reference/connection-string/
     
