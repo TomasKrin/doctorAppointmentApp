@@ -78,7 +78,8 @@ in a scheduler-type calendar.
         "person": Name Lastname
         "date": Date of the appointment in "yyyy-MM-dd" format
         "start": Start time of the appointment in "HH:mm" format
-        "end": The end time is automatically calculated in the frontend as one hour after the "start" time in "HH:mm" format.
+        "end": The end time is automatically calculated in the frontend as one hour after the "start" time in "HH:mm" format,
+        to imitate the doctor work hours.
 
 
 
