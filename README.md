@@ -39,7 +39,7 @@ in a scheduler-type calendar, with a work week view, to imitate the work week of
   To install this project on your computer:
   
     1. You need to install Node.js and npm (they are both installed when you install Node.js). 
-  Visit the Node.js website to download the LTS version: https://nodejs.org/en/download/
+  Visit the Node.js website to download (i use the LTS version): https://nodejs.org/en/download/
   
     2. After the installation completes, you can check if everything is installed correctly by typing "node -v" and "npm -v" in your terminal. 
     If the versions are shown, you're good to go. 
