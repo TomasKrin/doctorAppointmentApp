@@ -1,7 +1,7 @@
 # doctorAppointmentApp
 
   This is an app built with the React library, where you can enter your name, last name, choose a date and time for a doctor's appointment. 
-You can only register once a week, and appointments can only exist once at a time. All existing appointments are shown on the home screen 
+One person can only register once a week, and appointments can only exist once at a time. All existing appointments are shown on the home screen 
 in a scheduler-type calendar.
 
   Technologies used for this project:
