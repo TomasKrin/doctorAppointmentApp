@@ -37,13 +37,14 @@ in a scheduler-type calendar.
     6. VSCode (as the code editor)
 
   To install this project on your computer:
-
-     1. You need to install Node.js and npm (they are both installed when you install Node.js). 
-    Visit the Node.js website to download the LTS version: https://nodejs.org/en/download/
-    After the installation completes, you can check if everything is installed correctly by typing "node -v" and "npm -v" in your terminal. 
+  
+    1. You need to install Node.js and npm (they are both installed when you install Node.js). 
+  Visit the Node.js website to download the LTS version: https://nodejs.org/en/download/
+  
+    2. After the installation completes, you can check if everything is installed correctly by typing "node -v" and "npm -v" in your terminal. 
     If the versions are shown, you're good to go. 
     
-     2. To install Yarn, visit the following link for instructions: https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+  To install Yarn, visit the following link for instructions: https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
 
   Next, you need to clone this project to your computer:
   
@@ -66,13 +67,13 @@ in a scheduler-type calendar.
     4. Type "yarn" in both terminal tabs and wait for all the dependencies to be installed.
     
   You will need to use a MongoDB database, so you must set up a MongoDB account:
-
-    1. Follow the link to learn how to set up MongoDB: https://www.mongodb.com/basics/get-started.
-    2. Install MongoDB Compass to create your database and collections.
-    3. In this project, I named my database "DoctorAppointmentApp" and used one collection called "appointments." 
+  Follow the link to learn how to set up MongoDB: https://www.mongodb.com/basics/get-started.
+  
+    1. Install MongoDB Compass to create your database and collections.
+    2. In this project, I named my database "DoctorAppointmentApp" and used one collection called "appointments." 
     You can name your database and collection however you like, but if you do, you will need to change the corresponding values in the "server" 
     folder's index.js file to connect to the database properly.
-    4. The document structure inside your collection should look like this:
+    3. The document structure inside your collection should look like this:
 
         "person": Name Lastname
         "date": Date of the appointment in "yyyy-MM-dd" format
@@ -82,8 +83,8 @@ in a scheduler-type calendar.
 
 
   Set up the ".env" file to match the ".env.example" file, but with your own information filled in.
-
-    Link to the MongoDB URI guide: https://www.mongodb.com/docs/manual/reference/connection-string/
+  
+  Link to the MongoDB URI guide: https://www.mongodb.com/docs/manual/reference/connection-string/
     
   Use the command "yarn dev" in both terminal tabs to run the project on your computer.
 
